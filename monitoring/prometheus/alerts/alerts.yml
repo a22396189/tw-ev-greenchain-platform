@@ -1,0 +1,42 @@
+groups:
+  - name: greenchain_api_alerts
+    interval: 30s
+    rules:
+      - alert: APIDown
+        expr: up{job="greenchain-api"} == 0
+        for: 2m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Green-energy supply-chain API is unreachable"
+          description: "greenchain-api has been down for over 2 minutes; check container status (docker compose ps)"
+
+      - alert: HighDBQueryLatency
+        expr: histogram_quantile(0.95, rate(greenchain_api_db_query_duration_seconds_bucket[5m])) > 1
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Database query latency is high"
+          description: "p95 query time over the last 5 minutes exceeded 1 second"
+
+      - alert: DBErrorsPresent
+        expr: increase(greenchain_api_db_errors_total[10m]) > 0
+        for: 1m
+        labels:
+          severity: warning
+        annotations:
+          summary: "API reported database errors"
+          description: "database query errors seen in the last 10 minutes; inspect the API container logs"
+
+  - name: mysql_alerts
+    interval: 30s
+    rules:
+      - alert: MySQLTooManyConnections
+        expr: mysql_global_status_threads_connected / mysql_global_variables_max_connections * 100 > 80
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "MySQL connection usage is high"
+          description: "MySQL connection utilisation is above 80%"

@@ -1,0 +1,27 @@
+StockID,Year,Quarter,GrossMarginPct,OperatingMarginPct,NetMarginPct,Source,RetrievedAt
+2308,2025,3,29.10,13.40,12.10,seed_placeholder_verify,2026-09-06 00:00:00
+2308,2025,4,28.60,12.90,11.50,seed_placeholder_verify,2026-09-06 00:00:00
+6282,2025,3,14.80,4.60,3.90,seed_placeholder_verify,2026-09-06 00:00:00
+6282,2025,4,15.20,5.10,4.30,seed_placeholder_verify,2026-09-06 00:00:00
+1519,2025,3,26.40,17.20,14.10,seed_placeholder_verify,2026-09-06 00:00:00
+1519,2025,4,27.90,18.60,15.30,seed_placeholder_verify,2026-09-06 00:00:00
+1513,2025,3,21.30,11.80,9.40,seed_placeholder_verify,2026-09-06 00:00:00
+1513,2025,4,22.10,12.40,10.10,seed_placeholder_verify,2026-09-06 00:00:00
+1503,2025,3,23.70,12.10,9.80,seed_placeholder_verify,2026-09-06 00:00:00
+1503,2025,4,24.20,12.90,10.40,seed_placeholder_verify,2026-09-06 00:00:00
+2201,2025,3,11.90,3.20,4.80,seed_placeholder_verify,2026-09-06 00:00:00
+2201,2025,4,12.40,3.80,5.10,seed_placeholder_verify,2026-09-06 00:00:00
+2206,2025,3,15.60,5.40,6.20,seed_placeholder_verify,2026-09-06 00:00:00
+2206,2025,4,16.10,5.90,6.60,seed_placeholder_verify,2026-09-06 00:00:00
+1723,2025,3,13.20,7.10,6.30,seed_placeholder_verify,2026-09-06 00:00:00
+1723,2025,4,12.50,6.40,5.70,seed_placeholder_verify,2026-09-06 00:00:00
+4739,2025,3,18.40,9.60,7.80,seed_placeholder_verify,2026-09-06 00:00:00
+4739,2025,4,17.90,9.10,7.40,seed_placeholder_verify,2026-09-06 00:00:00
+5227,2025,3,8.10,-2.40,-3.60,seed_placeholder_verify,2026-09-06 00:00:00
+5227,2025,4,9.30,-0.80,-1.90,seed_placeholder_verify,2026-09-06 00:00:00
+3576,2025,3,4.60,-6.20,-8.10,seed_placeholder_verify,2026-09-06 00:00:00
+3576,2025,4,6.10,-3.90,-5.40,seed_placeholder_verify,2026-09-06 00:00:00
+6244,2025,3,5.20,-4.80,-6.10,seed_placeholder_verify,2026-09-06 00:00:00
+6244,2025,4,7.00,-2.10,-3.30,seed_placeholder_verify,2026-09-06 00:00:00
+3708,2025,3,16.80,6.40,5.20,seed_placeholder_verify,2026-09-06 00:00:00
+3708,2025,4,17.30,7.00,5.80,seed_placeholder_verify,2026-09-06 00:00:00
