@@ -26,9 +26,9 @@ by sub-sector and supply-chain tier:
 | Sub-sector | Companies (default) |
 |---|---|
 | Power Electronics & Powertrain | Delta Electronics (2308), AcBel Polytech (6282), TECO (1504) |
-| Grid & Renewables Infrastructure | Hua Eng (1519), Chung-Hsin Electric (1513), Shihlin Electric (1503), Ta Ya (1609), Century Iron & Steel (9958) |
+| Grid & Renewables Infrastructure | Fortune Electric (1519), Chung-Hsin Electric (1513), Shihlin Electric (1503), Ta Ya (1609), Century Iron & Steel (9958) |
 | EV Assembly | Yulon Motor (2201), Sanyang Motor / SYM (2206), China Motor (2204) |
-| Battery Materials | China Steel Chemical (1723), Cupric Technology (4739) |
+| Battery Materials | China Steel Chemical (1723), Coremax (4739) |
 
 Company English names and the sub-sector / tier classification are **editable
 metadata** in the seed CSV — adjust them to taste.
@@ -47,7 +47,7 @@ stand behind" judgement that keeps `green_energy_targets` a curated table.
 | Table | Contents | Source | Update path |
 |---|---|---|---|
 | `supply_chain_company` | The tracked universe (ticker, sub-sector, chain tier, product focus) | Curated CSV | Pure seed — edit the CSV, re-run seed |
-| `stock_price` | Daily OHLC for every company | TWSE `STOCK_DAY` | Seed backfills ~6 months; Airflow adds daily increments |
+| `stock_price` | Daily OHLC for every company | TWSE `STOCK_DAY` | Seed backfills ~12 months (`STOCK_PRICE_BACKFILL_MONTHS` env var); Airflow adds daily increments |
 | `institutional_investor` | Daily foreign / trust / dealer net buy per company | TWSE `T86` | Seed backfills ~30 days; Airflow re-pulls a rolling 7-day window each run (missed days self-heal) |
 | `quarterly_margins` | Gross / operating / net margin per company per quarter | History: FinMind `TaiwanStockFinancialStatements` (real, in seed CSV). Live: TWSE OpenAPI `t187ap17_L` | Seed loads real history; Airflow upserts the latest quarter each run |
 | `monthly_revenue` | Monthly revenue + YoY per company | History: FinMind `TaiwanStockMonthRevenue` (real, in seed CSV). Live: TWSE OpenAPI `t187ap05_L` | Same pattern as margins |

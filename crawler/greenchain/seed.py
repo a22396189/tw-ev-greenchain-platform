@@ -28,10 +28,12 @@ from .sources import (
 
 SEED_DIR = os.environ.get("SEED_DIR", "/app/data_seed")
 
-# Backfill windows (env-overridable). Defaults keep the first run to a few
-# minutes: ~6 months of price data across ~13 stocks, ~30 days of flows.
-STOCK_PRICE_BACKFILL_MONTHS = int(os.environ.get("STOCK_PRICE_BACKFILL_MONTHS", "6"))
-INSTITUTIONAL_BACKFILL_DAYS = int(os.environ.get("INSTITUTIONAL_BACKFILL_DAYS", "30"))
+# Backfill windows (env-overridable). Default is ~12 months of daily price data
+# across ~13 stocks (so the rebased-to-100 chart covers a full year) plus ~40
+# days of institutional flows. A full year of price backfill is ~15-20 min on
+# the first run; set STOCK_PRICE_BACKFILL_MONTHS=6 to halve that.
+STOCK_PRICE_BACKFILL_MONTHS = int(os.environ.get("STOCK_PRICE_BACKFILL_MONTHS", "12"))
+INSTITUTIONAL_BACKFILL_DAYS = int(os.environ.get("INSTITUTIONAL_BACKFILL_DAYS", "40"))
 
 
 def _read_csv(filename):

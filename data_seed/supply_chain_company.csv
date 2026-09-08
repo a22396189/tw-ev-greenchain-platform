@@ -2,7 +2,7 @@ StockID,CompanyName,SubSector,ChainTier,ProductFocus,ListingBoard,Note
 2308,Delta Electronics,Power Electronics & Powertrain,Midstream,EV powertrain inverters / onboard chargers / DC fast-charging modules,TWSE,Largest TW power-electronics name; EV + data-centre exposure
 6282,AcBel Polytech,Power Electronics & Powertrain,Midstream,Switching power supplies / EV charging power units / energy storage,TWSE,Power-supply maker moving into EV charging and ESS
 1504,TECO Electric & Machinery,Power Electronics & Powertrain,Midstream,Industrial & EV traction motors / motor drives / wind generators,TWSE,Heavy-electrical machinery; EV motor supply and wind-turbine generators
-1519,Hua Eng Wire & Cable,Grid & Renewables Infrastructure,Downstream,Power transformers / heavy electrical equipment for the grid,TWSE,Beneficiary of Taipower grid-resilience capex
+1519,Fortune Electric,Grid & Renewables Infrastructure,Downstream,Power transformers / switchgear / T&D materials / EV charging,TWSE,Largest domestic transformer maker; grid + AI-datacentre + renewables demand
 1513,Chung-Hsin Electric & Machinery,Grid & Renewables Infrastructure,Downstream,Switchgear / gas-insulated substations / offshore-wind substations / EV charging,TWSE,Grid equipment + offshore-wind marine engineering + EV charge-point operator
 1503,Shihlin Electric & Engineering,Grid & Renewables Infrastructure,Downstream,Switchgear / motors / renewable-energy inverters,TWSE,Switchgear and inverters for grid and renewables
 1609,Ta Ya Electric Wire & Cable,Grid & Renewables Infrastructure,Downstream,Power cables / solar power plant development (Ta Ya Green Energy),TWSE,Cable maker with a solar IPP subsidiary
@@ -11,4 +11,4 @@ StockID,CompanyName,SubSector,ChainTier,ProductFocus,ListingBoard,Note
 2206,Sanyang Motor (SYM),EV Assembly,Downstream,Scooters / electric scooters / light EV,TWSE,Two-wheeler electrification play
 2204,China Motor Corporation,EV Assembly,Downstream,Commercial vehicle assembly / CMC e-Veryca commercial EV / Mitsubishi,TWSE,Commercial-EV assembler; China JV investment income
 1723,China Steel Chemical,Battery Materials,Upstream,Coal-tar pitch / needle coke / battery anode carbon materials,TWSE,Upstream anode-materials feedstock; CSC group
-4739,Cupric Technology,Battery Materials,Upstream,Copper / cobalt / nickel salts / cathode precursors / battery recycling,TWSE,Precursor chemistry and metal recovery from spent cells; loss-to-profit turnaround
+4739,Coremax Corporation,Battery Materials,Upstream,Cobalt / nickel / manganese salts / cathode precursors / spent-cell recycling (Vietnam plant),TWSE,Metal-based specialty chemicals and EV battery materials; loss-to-profit turnaround
