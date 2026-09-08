@@ -208,7 +208,8 @@
         "defaults": {},
         "overrides": []
       },
-      "options": {}
+      "options": {},
+      "timeFrom": "18M"
     },
     {
       "id": 7,
@@ -240,7 +241,8 @@
         "defaults": {},
         "overrides": []
       },
-      "options": {}
+      "options": {},
+      "timeFrom": "1y"
     },
     {
       "id": 8,
@@ -272,7 +274,8 @@
         "defaults": {},
         "overrides": []
       },
-      "options": {}
+      "options": {},
+      "timeFrom": "2y"
     },
     {
       "id": 9,

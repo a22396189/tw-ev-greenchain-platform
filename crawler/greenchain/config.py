@@ -23,15 +23,15 @@ REQUEST_TIMEOUT = 10
 FALLBACK_STOCK_IDS = [
     "2308",  # Delta Electronics      - power electronics / EV powertrain
     "6282",  # AcBel Polytech         - power supplies / EV charging
+    "1504",  # TECO Electric          - EV traction motors / drives / wind generators
     "1519",  # Hua Eng Wire & Cable   - grid transformers
-    "1513",  # Chung-Hsin Electric    - switchgear / EV charging stations
-    "1503",  # Shihlin Electric       - motors / traction / switchgear
+    "1513",  # Chung-Hsin Electric    - switchgear / offshore-wind substations
+    "1503",  # Shihlin Electric       - switchgear / renewable inverters
+    "1609",  # Ta Ya Electric         - power cable / solar IPP
+    "9958",  # Century Iron & Steel   - offshore-wind foundations
     "2201",  # Yulon Motor            - passenger EV assembly
     "2206",  # Sanyang Motor (SYM)    - electric scooters / EV
+    "2204",  # China Motor            - commercial EV assembly
     "1723",  # China Steel Chemical   - battery anode / carbon materials
     "4739",  # Cupric Technology      - cathode precursors / battery recycling
-    "5227",  # Aleees (Advanced Lithium Electrochemistry) - LFP cathode material
-    "3576",  # United Renewable Energy - solar cells & modules
-    "6244",  # Motech Industries      - solar cells & modules
-    "3708",  # Swancor Holding        - wind-blade resin / composites
 ]

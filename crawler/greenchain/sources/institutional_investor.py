@@ -113,11 +113,17 @@ def fetch_range(stock_ids: List[str], start_date: str, end_date: str) -> List[Di
     return rows
 
 
-def fetch_latest(stock_ids: List[str]) -> List[Dict]:
-    """Today's institutional flows for the universe (Airflow daily task)."""
-    today = date.today().isoformat()
+def fetch_latest(stock_ids: List[str], lookback_days: int = 7) -> List[Dict]:
+    """
+    Institutional flows for the last `lookback_days` calendar days (Airflow daily
+    task). A rolling window rather than just "today" so a few missed scheduled
+    runs (long weekend, machine off) self-heal on the next run - upsert makes the
+    repeated days free of side effects. Costs ~5 requests instead of 1.
+    """
+    today = date.today()
+    start = today - timedelta(days=lookback_days)
     try:
-        return fetch_day(today, stock_ids)
+        return fetch_range(stock_ids, start.isoformat(), today.isoformat())
     except Exception as e:  # noqa: BLE001
         logger.warning(
             f"[institutional_investor] TWSE request failed ({e}); "

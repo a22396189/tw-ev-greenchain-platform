@@ -108,7 +108,8 @@ business_panels = [
               "SUM(r.RevenueThousandNTD*r.YoYPct)/NULLIF(SUM(r.RevenueThousandNTD),0) AS value "
               "FROM monthly_revenue r JOIN supply_chain_company c ON r.StockID=c.StockID "
               "WHERE r.YoYPct IS NOT NULL GROUP BY r.Month, c.SubSector ORDER BY time", "time_series")],
-          MYSQL_UID),
+          MYSQL_UID,
+          extra={"timeFrom": "18M"}),  # monthly data: always show enough history regardless of dashboard range
 
     panel(7, "Share price rebased to 100 (per company)", {"x": 0, "y": 13, "w": 12, "h": 9}, "timeseries",
           [mysql_target(
@@ -116,14 +117,16 @@ business_panels = [
               "p.Close / FIRST_VALUE(p.Close) OVER (PARTITION BY p.StockID ORDER BY p.Date) * 100 AS value "
               "FROM stock_price p JOIN supply_chain_company c ON p.StockID=c.StockID "
               "WHERE p.Close IS NOT NULL ORDER BY time", "time_series")],
-          MYSQL_UID),
+          MYSQL_UID,
+          extra={"timeFrom": "1y"}),  # rebase from a fixed 1y window, not the dashboard picker
 
     panel(8, "Operating margin % by company (quarterly)", {"x": 12, "y": 13, "w": 12, "h": 9}, "timeseries",
           [mysql_target(
               "SELECT STR_TO_DATE(CONCAT(q.Year,'-',(q.Quarter-1)*3+1,'-01'),'%Y-%m-%d') AS time, "
               "c.CompanyName AS metric, q.OperatingMarginPct AS value "
               "FROM quarterly_margins q JOIN supply_chain_company c ON q.StockID=c.StockID ORDER BY time", "time_series")],
-          MYSQL_UID),
+          MYSQL_UID,
+          extra={"timeFrom": "2y"}),  # quarterly data: always show all of it
 
     panel(9, "Trailing return leaderboard (60 trading rows)", {"x": 0, "y": 22, "w": 12, "h": 9}, "table",
           [mysql_target(
