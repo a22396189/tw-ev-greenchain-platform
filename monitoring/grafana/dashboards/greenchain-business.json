@@ -81,7 +81,7 @@
     },
     {
       "id": 3,
-      "title": "Latest revenue month in DB",
+      "title": "Latest fully-reported revenue month",
       "type": "table",
       "gridPos": {
         "x": 10,
@@ -100,7 +100,7 @@
             "type": "mysql",
             "uid": "mysql-greenchain"
           },
-          "rawSql": "SELECT MAX(Month) AS `Latest month` FROM monthly_revenue",
+          "rawSql": "SELECT (SELECT Month FROM monthly_revenue GROUP BY Month HAVING COUNT(*) >= 10 ORDER BY Month DESC LIMIT 1) AS `Month`",
           "format": "table",
           "rawQuery": true
         }
@@ -167,7 +167,7 @@
             "type": "mysql",
             "uid": "mysql-greenchain"
           },
-          "rawSql": "SELECT c.SubSector AS metric, SUM(r.RevenueThousandNTD) AS value FROM monthly_revenue r JOIN supply_chain_company c ON r.StockID=c.StockID WHERE r.Month=(SELECT MAX(Month) FROM monthly_revenue) GROUP BY c.SubSector ORDER BY value DESC",
+          "rawSql": "SELECT c.SubSector AS metric, SUM(r.RevenueThousandNTD) AS value FROM monthly_revenue r JOIN supply_chain_company c ON r.StockID=c.StockID WHERE r.Month=(SELECT Month FROM monthly_revenue GROUP BY Month HAVING COUNT(*) >= 10 ORDER BY Month DESC LIMIT 1) GROUP BY c.SubSector ORDER BY value DESC",
           "format": "table",
           "rawQuery": true
         }
@@ -199,7 +199,7 @@
             "type": "mysql",
             "uid": "mysql-greenchain"
           },
-          "rawSql": "SELECT STR_TO_DATE(CONCAT(r.Month,'-01'),'%Y-%m-%d') AS time, c.SubSector AS metric, SUM(r.RevenueThousandNTD*r.YoYPct)/NULLIF(SUM(r.RevenueThousandNTD),0) AS value FROM monthly_revenue r JOIN supply_chain_company c ON r.StockID=c.StockID WHERE r.YoYPct IS NOT NULL GROUP BY r.Month, c.SubSector ORDER BY time",
+          "rawSql": "SELECT STR_TO_DATE(CONCAT(r.Month,'-01'),'%Y-%m-%d') AS time, c.SubSector AS metric, SUM(r.RevenueThousandNTD*r.YoYPct)/NULLIF(SUM(r.RevenueThousandNTD),0) AS value FROM monthly_revenue r JOIN supply_chain_company c ON r.StockID=c.StockID WHERE r.YoYPct IS NOT NULL AND r.Month IN (SELECT Month FROM monthly_revenue GROUP BY Month HAVING COUNT(*) >= 10) GROUP BY r.Month, c.SubSector ORDER BY time",
           "format": "time_series",
           "rawQuery": true
         }

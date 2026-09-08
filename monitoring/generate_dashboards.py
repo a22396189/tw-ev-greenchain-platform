@@ -69,7 +69,12 @@ def dashboard(uid, title, panels, tags):
 # ---------------------------------------------------------------------------
 # Business dashboard (MySQL datasource) - the supply-chain analytics view
 # ---------------------------------------------------------------------------
-LATEST_MONTH = "(SELECT MAX(Month) FROM monthly_revenue)"
+# latest month that at least 10 of the ~13 names have reported (avoids a half-empty
+# newest month, where only the early reporters are in - which skews any aggregate)
+LATEST_MONTH = ("(SELECT Month FROM monthly_revenue GROUP BY Month "
+                "HAVING COUNT(*) >= 10 ORDER BY Month DESC LIMIT 1)")
+WELL_COVERED_MONTHS = ("(SELECT Month FROM monthly_revenue GROUP BY Month "
+                       "HAVING COUNT(*) >= 10)")
 
 business_panels = [
     panel(1, "Companies tracked", {"x": 0, "y": 0, "w": 5, "h": 4}, "stat",
@@ -80,8 +85,8 @@ business_panels = [
           [mysql_target("SELECT COUNT(DISTINCT SubSector) AS value FROM supply_chain_company", "table")],
           MYSQL_UID),
 
-    panel(3, "Latest revenue month in DB", {"x": 10, "y": 0, "w": 6, "h": 4}, "table",
-          [mysql_target("SELECT MAX(Month) AS `Latest month` FROM monthly_revenue", "table")],
+    panel(3, "Latest fully-reported revenue month", {"x": 10, "y": 0, "w": 6, "h": 4}, "table",
+          [mysql_target(f"SELECT {LATEST_MONTH} AS `Month`", "table")],
           MYSQL_UID),
 
     panel(4, "Basket avg return, ~60 trading rows", {"x": 16, "y": 0, "w": 8, "h": 4}, "stat",
@@ -107,7 +112,8 @@ business_panels = [
               "SELECT STR_TO_DATE(CONCAT(r.Month,'-01'),'%Y-%m-%d') AS time, c.SubSector AS metric, "
               "SUM(r.RevenueThousandNTD*r.YoYPct)/NULLIF(SUM(r.RevenueThousandNTD),0) AS value "
               "FROM monthly_revenue r JOIN supply_chain_company c ON r.StockID=c.StockID "
-              "WHERE r.YoYPct IS NOT NULL GROUP BY r.Month, c.SubSector ORDER BY time", "time_series")],
+              f"WHERE r.YoYPct IS NOT NULL AND r.Month IN {WELL_COVERED_MONTHS} "
+              "GROUP BY r.Month, c.SubSector ORDER BY time", "time_series")],
           MYSQL_UID,
           extra={"timeFrom": "18M"}),  # monthly data: always show enough history regardless of dashboard range
 
