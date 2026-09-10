@@ -153,7 +153,7 @@ business_panels = [
               "ORDER BY time", "time_series")],
           MYSQL_UID),
 
-    panel(11, "Taiwan energy-transition targets (ILLUSTRATIVE - verify each SourceURL)",
+    panel(11, "Taiwan energy-transition targets vs actuals (Bureau of Energy / NDC)",
           {"x": 0, "y": 31, "w": 24, "h": 8}, "table",
           [mysql_target(
               "SELECT Year, MetricLabel AS `Metric`, TargetValue AS `Target`, ActualValue AS `Actual`, "

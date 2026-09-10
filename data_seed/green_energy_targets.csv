@@ -1,8 +1,15 @@
 Year,Metric,MetricLabel,TargetValue,ActualValue,Unit,Note,SourceURL,RetrievedDate
-2025,solar_pv_cumulative,Solar PV cumulative installed capacity,20,,GW,ILLUSTRATIVE placeholder - replace with the figure from the Bureau of Energy statistics portal,https://www.moeaea.gov.tw/,2026-09-06
-2026,solar_pv_cumulative,Solar PV cumulative installed capacity,,,GW,Fill target and actual from official energy statistics,https://www.moeaea.gov.tw/,2026-09-06
-2025,offshore_wind_cumulative,Offshore wind cumulative installed capacity,5.6,,GW,ILLUSTRATIVE placeholder - verify against Bureau of Energy / Wind Turbine Certification data,https://www.moeaea.gov.tw/,2026-09-06
-2030,offshore_wind_cumulative,Offshore wind cumulative installed capacity,13.1,,GW,ILLUSTRATIVE placeholder - Phase 3 zonal development cumulative goal; verify,https://www.moeaea.gov.tw/,2026-09-06
-2030,renewable_generation_share,Renewable share of electricity generation,30,,percent,ILLUSTRATIVE placeholder - confirm against the current national energy policy statement,https://www.moeaea.gov.tw/,2026-09-06
-2050,net_zero,Net-zero greenhouse gas emissions pathway,100,,percent of 2050 pathway,Taiwan 2050 net-zero policy; this row is a milestone marker only,https://www.ndc.gov.tw/,2026-09-06
-2025,bev_registration_share,Battery-EV share of new passenger car registrations,,,percent,No published official target - populate ActualValue from MOTC vehicle registration statistics,https://stat.motc.gov.tw/,2026-09-06
+2025,solar_pv_cumulative,Solar PV cumulative installed capacity,20,15.47,GW,2025 goal 20 GW (6 rooftop + 14 ground); ~15.5 GW at 2025 year-end - behind plan,https://www.re.org.tw/news/more.aspx?cid=198&id=4085,2026-09-10
+2030,solar_pv_cumulative,Solar PV cumulative installed capacity,31.2,,GW,Bureau of Energy 2030 projection ~31.2 GW; 2050 net-zero roadmap cites ~30 GW,https://www.moeaea.gov.tw/ecw/populace/content/Content.aspx?menu_id=14437,2026-09-10
+2050,solar_pv_cumulative,Solar PV cumulative installed capacity,60,,GW,2050 net-zero roadmap range 40-80 GW - midpoint shown,https://www.ndc.gov.tw/en/Content_List.aspx?n=B927D0EDB57A7A3A,2026-09-10
+2025,offshore_wind_cumulative,Offshore wind cumulative grid-connected capacity,5.6,4.7,GW,Original Phase-2 target 5.6 GW by 2025; ~4.7 GW grid-connected at 2025 year-end (4.8 GW / 500 turbines by Jun 2026),https://ea01.moeaea.gov.tw/d0107/Windpolicy,2026-09-10
+2030,offshore_wind_cumulative,Offshore wind cumulative grid-connected capacity,13.1,,GW,2050 net-zero roadmap 2030 milestone; Phase-3 zonal development,https://www.ndc.gov.tw/en/Content_List.aspx?n=B927D0EDB57A7A3A,2026-09-10
+2050,offshore_wind_cumulative,Offshore wind cumulative grid-connected capacity,47,,GW,2050 net-zero roadmap range 40-55 GW - midpoint shown,https://www.ndc.gov.tw/en/Content_List.aspx?n=B927D0EDB57A7A3A,2026-09-10
+2025,renewable_generation_share,Renewable share of electricity generation,20,13.1,percent,'5-3-2' 2025 goal (gas 50 / coal 30 / renewables 20); actual 13.1% (~37.8 TWh) per Bureau of Energy,https://e-info.org.tw/node/243176,2026-09-10
+2030,renewable_generation_share,Renewable share of electricity generation,30,,percent,2050 net-zero roadmap 2030 milestone,https://www.ndc.gov.tw/en/Content_List.aspx?n=B927D0EDB57A7A3A,2026-09-10
+2050,renewable_generation_share,Renewable share of electricity generation,65,,percent,2050 net-zero roadmap range 60-70% renewables (+ 20-27% thermal with CCS) - midpoint shown,https://www.ndc.gov.tw/en/Content_List.aspx?n=B927D0EDB57A7A3A,2026-09-10
+2025,bev_new_car_share,Battery-EV share of new passenger car sales,,7.9,percent,"No official 2025 target; actual ~7.9% (32,559 BEV of ~414k market; 2024 ~8.3%)",https://news.u-car.com.tw/news/article/86732,2026-09-10
+2030,bev_new_car_share,Battery-EV share of new passenger car sales,30,,percent,"NDC transport net-zero strategy: 2030 30% / 2035 60% / 2040 100% (subsidy-led, no ICE ban)",https://netzero.cna.com.tw/news/202204280063/,2026-09-10
+2035,bev_new_car_share,Battery-EV share of new passenger car sales,60,,percent,NDC transport net-zero strategy,https://e-info.org.tw/node/235523,2026-09-10
+2040,bev_new_car_share,Battery-EV share of new passenger car sales,100,,percent,NDC transport net-zero strategy - 100% of new passenger-car and scooter sales electric,https://e-info.org.tw/node/235523,2026-09-10
+2050,net_zero_ghg,Net-zero greenhouse gas emissions,100,,percent of pathway,Taiwan 2050 net-zero pathway - milestone marker only,https://www.ndc.gov.tw/en/Content_List.aspx?n=B927D0EDB57A7A3A,2026-09-10

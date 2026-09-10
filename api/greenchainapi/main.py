@@ -144,7 +144,7 @@ def monthly_revenue(stock_id: Optional[str] = Query(None)) -> Dict[str, List[Dic
 
 @app.get("/green_energy_targets")
 def green_energy_targets() -> Dict[str, List[Dict]]:
-    """Curated national energy-transition targets. Figures are illustrative - see SourceURL per row."""
+    """Curated national energy-transition targets vs actuals (Bureau of Energy / NDC; SourceURL per row)."""
     sql = "SELECT * FROM green_energy_targets ORDER BY Year, Metric"
     return {"data": query("green_energy_targets", "green_energy_targets", sql, ())}
 

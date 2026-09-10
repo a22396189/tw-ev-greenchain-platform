@@ -51,7 +51,7 @@ stand behind" judgement that keeps `green_energy_targets` a curated table.
 | `institutional_investor` | Daily foreign / trust / dealer net buy per company | TWSE `T86` | Seed backfills ~30 days; Airflow re-pulls a rolling 7-day window each run (missed days self-heal) |
 | `quarterly_margins` | Gross / operating / net margin per company per quarter | History: FinMind `TaiwanStockFinancialStatements` (real, in seed CSV). Live: TWSE OpenAPI `t187ap17_L` | Seed loads real history; Airflow upserts the latest quarter each run |
 | `monthly_revenue` | Monthly revenue + YoY per company | History: FinMind `TaiwanStockMonthRevenue` (real, in seed CSV). Live: TWSE OpenAPI `t187ap05_L` | Same pattern as margins |
-| `green_energy_targets` | National energy-transition targets vs actuals | Government portals / press (see per-row `SourceURL`) | Pure seed; **figures shipped here are illustrative placeholders** |
+| `green_energy_targets` | National energy-transition targets vs actuals (solar / offshore wind / renewable share / BEV sales share / net zero) | Bureau of Energy, NDC 2050 net-zero roadmap, press (per-row `SourceURL`), as of 2026-09 | Pure seed; hand-curated from the sources above |
 
 ### Why margin / revenue history comes from a seed CSV
 
@@ -68,16 +68,18 @@ tickers it cares about in a single pass.
 To refresh the history, re-pull from FinMind and rewrite the two seed CSVs, or
 just let the live feed accumulate new periods month by month.
 
-### Why `green_energy_targets` values are placeholders
+### Why `green_energy_targets` is a hand-curated table, not a crawl
 
-Taiwan's solar / offshore-wind / renewable-share / net-zero targets are
-published as policy statements and periodic statistics bulletins, not as a
-stable structured API, and the exact numbers get revised. The CSV ships with
-clearly-labelled `ILLUSTRATIVE placeholder` rows and a `SourceURL` per row.
-Replace them with verified figures from the Bureau of Energy / National
-Development Council before relying on that panel. Treating "no stable source"
-honestly — rather than scraping a brittle page that looks authoritative — is
-itself a data-governance decision worth defending.
+Taiwan's solar / offshore-wind / renewable-share / net-zero / EV targets are
+published as policy statements and periodic statistics bulletins — not a stable
+structured API — and the exact numbers get revised between documents. So this
+table is **hand-curated** from the Bureau of Energy, the NDC 2050 net-zero
+roadmap and reported figures (each row carries a `SourceURL`, pulled 2026-09).
+Notable gaps it captures: the 2025 renewable-generation-share goal was 20% and
+the actual came in at ~13%; solar reached ~15.5 GW against a 20 GW goal.
+Re-check the sources before quoting these — energy statistics move — but the
+choice to curate rather than scrape a brittle page is itself a data-governance
+decision worth defending.
 
 ---
 
@@ -275,10 +277,10 @@ auto-provisions on start.
   read them alongside the operating-margin line.
 - The share-price and institutional-flow feeds are real TWSE endpoints; the seed
   backfills them directly (no CSV).
-- `green_energy_targets` still ships with **illustrative placeholder values** —
-  Taiwan's solar / offshore-wind / net-zero targets have no stable structured
-  API. Replace them with verified figures (each row carries a `SourceURL`)
-  before presenting that panel.
+- `green_energy_targets` is hand-curated from the Bureau of Energy / NDC (pulled
+  2026-09; each row carries a `SourceURL`). Energy statistics get revised, so
+  re-check the sources before quoting — but the figures reflect real published
+  targets and actuals, not placeholders.
 
 ## Testing status
 

@@ -71,7 +71,7 @@ def seed_dimension_and_targets(conn):
     n = upsert(conn, "green_energy_targets", rows)
     logger.info(
         f"[seed] green_energy_targets: {n} rows "
-        f"(ILLUSTRATIVE figures - verify each against its SourceURL before use)"
+        f"(figures from Bureau of Energy / NDC as of 2026-09; each row carries a SourceURL)"
     )
 
 
