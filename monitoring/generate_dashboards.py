@@ -52,7 +52,7 @@ def promql_target(expr, legend=None, ref="A"):
     return t
 
 
-def dashboard(uid, title, panels, tags):
+def dashboard(uid, title, panels, tags, time_from="now-1y", refresh="1m"):
     return {
         "uid": uid,
         "title": title,
@@ -60,8 +60,8 @@ def dashboard(uid, title, panels, tags):
         "timezone": "browser",
         "schemaVersion": 39,
         "version": 1,
-        "refresh": "1m",
-        "time": {"from": "now-1y", "to": "now"},
+        "refresh": refresh,
+        "time": {"from": time_from, "to": "now"},
         "panels": panels,
     }
 
@@ -189,14 +189,19 @@ ops_panels = [
           PROM_UID),
 
     panel(5, "Cumulative DB errors", {"x": 18, "y": 8, "w": 6, "h": 8}, "stat",
-          [promql_target("sum(greenchain_api_db_errors_total)")],
+          # the error counter has no series until the first error, so fall back to 0
+          [promql_target("sum(greenchain_api_db_errors_total) or vector(0)")],
           PROM_UID,
           extra={"fieldConfig": {"defaults": {"thresholds": {"mode": "absolute",
                                                              "steps": [{"color": "green", "value": None},
                                                                        {"color": "red", "value": 1}]}}, "overrides": []}}),
 ]
 
-ops = dashboard("greenchain-ops", "Platform System Monitoring", ops_panels, ["green-energy", "ops"])
+# Ops metrics are short-lived (Prometheus keeps ~15 days and rate() windows are 5m),
+# so default to the last hour; a 1-year range makes the query step far wider than
+# the data and every panel renders "No data".
+ops = dashboard("greenchain-ops", "Platform System Monitoring", ops_panels, ["green-energy", "ops"],
+                time_from="now-1h", refresh="30s")
 
 for d in (business, ops):
     path = os.path.join(OUT_DIR, f"{d['uid']}.json")

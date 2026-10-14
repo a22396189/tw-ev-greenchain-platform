@@ -68,8 +68,13 @@ services:
 
   mysql-exporter:
     image: prom/mysqld-exporter:latest
+    # mysqld_exporter >= 0.15 dropped DATA_SOURCE_NAME; it now takes address/user as
+    # flags and the password via MYSQLD_EXPORTER_PASSWORD.
+    command:
+      - "--mysqld.address=mysql:3306"
+      - "--mysqld.username=root"
     environment:
-      - DATA_SOURCE_NAME=root:${MYSQL_ROOT_PASSWORD}@(mysql:3306)/
+      - MYSQLD_EXPORTER_PASSWORD=${MYSQL_ROOT_PASSWORD}
     depends_on:
       mysql:
         condition: service_healthy
