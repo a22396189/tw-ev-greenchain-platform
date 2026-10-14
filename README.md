@@ -48,7 +48,7 @@ stand behind" judgement that keeps `green_energy_targets` a curated table.
 |---|---|---|---|
 | `supply_chain_company` | The tracked universe (ticker, sub-sector, chain tier, product focus) | Curated CSV | Pure seed — edit the CSV, re-run seed |
 | `stock_price` | Daily OHLC for every company | TWSE `STOCK_DAY` | Seed backfills ~12 months (`STOCK_PRICE_BACKFILL_MONTHS` env var); Airflow adds daily increments |
-| `institutional_investor` | Daily foreign / trust / dealer net buy per company | TWSE `T86` | Seed backfills ~30 days; Airflow re-pulls a rolling 7-day window each run (missed days self-heal) |
+| `institutional_investor` | Daily foreign / trust / dealer net buy per company | TWSE `T86` (one date per request, whole market; past dates are queryable) | Seed backfills ~40 days day-by-day; Airflow re-pulls a rolling 7-day window each run (missed days self-heal) |
 | `quarterly_margins` | Gross / operating / net margin per company per quarter | History: FinMind `TaiwanStockFinancialStatements` (real, in seed CSV). Live: TWSE OpenAPI `t187ap17_L` | Seed loads real history; Airflow upserts the latest quarter each run |
 | `monthly_revenue` | Monthly revenue + YoY per company | History: FinMind `TaiwanStockMonthRevenue` (real, in seed CSV). Live: TWSE OpenAPI `t187ap05_L` | Same pattern as margins |
 | `green_energy_targets` | National energy-transition targets vs actuals (solar / offshore wind / renewable share / BEV sales share / net zero) | Bureau of Energy, NDC 2050 net-zero roadmap, press (per-row `SourceURL`), as of 2026-09 | Pure seed; hand-curated from the sources above |
