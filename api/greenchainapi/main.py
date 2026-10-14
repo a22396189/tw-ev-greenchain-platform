@@ -18,13 +18,21 @@ from typing import Dict, List, Optional
 import pymysql
 from fastapi import FastAPI, HTTPException, Query
 from prometheus_client import Counter, Gauge, Histogram
-from prometheus_fastapi_instrumentator import Instrumentator
+from prometheus_fastapi_instrumentator import Instrumentator, metrics
 
 from .config import MYSQL_DATABASE, MYSQL_HOST, MYSQL_PASSWORD, MYSQL_PORT, MYSQL_USER
 
 app = FastAPI(title="TW EV & Green-Energy Supply-Chain Analytics API", version="1.0.0")
 
-Instrumentator().instrument(app).expose(app)
+# The library's default latency histogram only has 0.1 / 0.5 / 1 s buckets. Every request here
+# finishes in well under 100 ms, so they all land in the first bucket and
+# histogram_quantile() interpolates a constant p95 of 0.95 * 0.1 = 0.095 s for every handler.
+# Use sub-100ms buckets so p95 actually moves, and keep Prometheus's own /metrics scrape
+# (every 15 s) out of the request-rate / latency series, where it would drown real traffic.
+instrumentator = Instrumentator(excluded_handlers=["/metrics"])
+instrumentator.add(metrics.requests())
+instrumentator.add(metrics.latency(buckets=(0.005, 0.01, 0.025, 0.05, 0.1, 0.25, 0.5, 1.0, 2.5)))
+instrumentator.instrument(app).expose(app)
 
 api_queries_counter = Counter(
     "greenchain_api_queries_total", "total API queries", ["endpoint"]

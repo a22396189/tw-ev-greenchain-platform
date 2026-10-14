@@ -169,12 +169,12 @@ business = dashboard("greenchain-business", "EV & Green-Energy Supply-Chain Anal
 # ---------------------------------------------------------------------------
 ops_panels = [
     panel(1, "API request rate (req/s)", {"x": 0, "y": 0, "w": 12, "h": 8}, "timeseries",
-          [promql_target('sum(rate(http_requests_total{job="greenchain-api"}[5m])) by (handler)', "{{handler}}")],
+          [promql_target('sum(rate(http_requests_total{job="greenchain-api",handler!="/metrics"}[5m])) by (handler)', "{{handler}}")],
           PROM_UID),
 
     panel(2, "API latency p95 (s)", {"x": 12, "y": 0, "w": 12, "h": 8}, "timeseries",
           [promql_target(
-              'histogram_quantile(0.95, sum(rate(http_request_duration_seconds_bucket{job="greenchain-api"}[5m])) by (le, handler))',
+              'histogram_quantile(0.95, sum(rate(http_request_duration_seconds_bucket{job="greenchain-api",handler!="/metrics"}[5m])) by (le, handler))',
               "{{handler}}")],
           PROM_UID),
 
