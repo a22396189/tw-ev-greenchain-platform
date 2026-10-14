@@ -176,16 +176,20 @@ def sector_revenue_momentum() -> Dict:
 
     months = sorted({r["Month"] for r in rows})
     universe = {r["StockID"] for r in rows}
+    min_reporters = max(1, len(universe) // 2)
+
+    def well_covered(mth: str) -> bool:
+        return len({r["StockID"] for r in rows if r["Month"] == mth}) >= min_reporters
+
     # newest month reported by >= half the universe
-    latest = None
-    for mth in reversed(months):
-        reporters = {r["StockID"] for r in rows if r["Month"] == mth}
-        if len(reporters) >= max(1, len(universe) // 2):
-            latest = mth
-            break
-    if latest is None:
-        latest = months[-1]
-    prev = months[months.index(latest) - 1] if months.index(latest) > 0 else None
+    latest = next((m for m in reversed(months) if well_covered(m)), months[-1])
+
+    # MoM is only meaningful against the immediately preceding calendar month, and
+    # only if that month is itself well covered. A half-reported month (a few early
+    # filers) would make every sub-sector's MoM look like +600% / +1,000%.
+    y, m = int(latest[:4]), int(latest[5:7])
+    prev_cal = f"{y - 1:04d}-12" if m == 1 else f"{y:04d}-{m - 1:02d}"
+    prev = prev_cal if prev_cal in months and well_covered(prev_cal) else None
 
     def agg(month):
         buckets: Dict[str, Dict] = {}
