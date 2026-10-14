@@ -141,6 +141,7 @@ Most endpoints are straight table reads. Two are not:
 | Airflow layout | Official three-part split: `airflow-init` / `webserver` / `scheduler` | Easier to see which stage failed |
 | Grafana data sources | Prometheus **+ MySQL** | The MySQL source is what makes the business dashboard possible — sub-sector momentum, relative strength, margins — not just API QPS |
 | Institutional-flow crawl | Pull the whole-market `T86` once per day, filter the basket; daily task re-pulls a rolling 7-day window | One request covers all tickers; the rolling window means a few missed scheduled runs self-heal (upsert makes the repeats free) |
+| Scheduler timezone | tz-aware `start_date` (`Asia/Taipei`) in the DAG | Airflow ignores the container's `TZ` env var and defaults to UTC, so a bare `0 21 * * 1-5` would fire at 05:00 Taipei the next morning. The UI still *displays* UTC unless you pick a timezone in its top-right clock menu |
 | Universe definition | Single source of truth in `supply_chain_company` | Add a company = one CSV line + re-seed, no code change |
 | Basket selection | All-TWSE, exclude structurally loss-making / TPEx names | Every feed resolves for every name; the momentum and margin charts stay readable |
 

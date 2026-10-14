@@ -11,8 +11,9 @@ The `greenchain` package is mounted into this container at
 /opt/airflow/dags/greenchain (see docker-compose.yml), so the import below
 resolves.
 """
-from datetime import datetime, timedelta
+from datetime import timedelta
 
+import pendulum
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 
@@ -33,8 +34,11 @@ def _run_task(task_name: str):
 with DAG(
     dag_id="greenchain_data_pipeline",
     description="Daily refresh: price / institutional flows / margins / revenue for the EV & green-energy basket",
-    start_date=datetime(2026, 1, 1),
-    schedule="0 21 * * 1-5",  # weekdays 21:00 (container TZ = Asia/Taipei)
+    # A tz-aware start_date makes Airflow evaluate the cron in Taiwan time. The container's
+    # TZ env var does NOT affect scheduling: without this, "0 21 * * 1-5" is read as
+    # 21:00 UTC, i.e. 05:00 the next morning in Taipei.
+    start_date=pendulum.datetime(2026, 1, 1, tz="Asia/Taipei"),
+    schedule="0 21 * * 1-5",  # weekdays 21:00 Asia/Taipei (after the TWSE close + T86 publication)
     catchup=False,
     max_active_runs=1,
     tags=["green-energy", "ev", "market-data"],
