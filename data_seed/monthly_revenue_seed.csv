@@ -23,6 +23,7 @@ StockID,Month,RevenueThousandNTD,YoYPct,Source,RetrievedAt
 1503,2026-05,3049512,8.35,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
 1503,2026-06,3108909,-10.58,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
 1503,2026-07,2971490,15.1,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
+1503,2026-08,2846465,-0.38,finmind_TaiwanStockMonthRevenue,2026-10-14 00:00:00
 1504,2024-08,4454245,,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
 1504,2024-09,4368723,,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
 1504,2024-10,4243665,,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
@@ -72,6 +73,7 @@ StockID,Month,RevenueThousandNTD,YoYPct,Source,RetrievedAt
 1513,2026-05,2392022,3.62,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
 1513,2026-06,2833330,8.31,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
 1513,2026-07,2410391,3.83,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
+1513,2026-08,2502498,8.93,finmind_TaiwanStockMonthRevenue,2026-10-14 00:00:00
 1519,2024-08,1587327,,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
 1519,2024-09,1765912,,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
 1519,2024-10,1968763,,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
@@ -96,6 +98,7 @@ StockID,Month,RevenueThousandNTD,YoYPct,Source,RetrievedAt
 1519,2026-05,1476965,-9.33,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
 1519,2026-06,1729751,-25.78,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
 1519,2026-07,2049883,-8.32,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
+1519,2026-08,1916427,12.5,finmind_TaiwanStockMonthRevenue,2026-10-14 00:00:00
 1609,2024-08,2713947,,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
 1609,2024-09,2415984,,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
 1609,2024-10,2501911,,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
@@ -120,6 +123,7 @@ StockID,Month,RevenueThousandNTD,YoYPct,Source,RetrievedAt
 1609,2026-05,3135375,21.98,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
 1609,2026-06,3369481,22.67,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
 1609,2026-07,2905704,11.53,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
+1609,2026-08,3388884,34.84,finmind_TaiwanStockMonthRevenue,2026-10-14 00:00:00
 1723,2024-08,876636,,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
 1723,2024-09,512032,,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
 1723,2024-10,632708,,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
@@ -144,6 +148,7 @@ StockID,Month,RevenueThousandNTD,YoYPct,Source,RetrievedAt
 1723,2026-05,636660,58.44,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
 1723,2026-06,674339,32.12,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
 1723,2026-07,683318,46.18,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
+1723,2026-08,619597,46.94,finmind_TaiwanStockMonthRevenue,2026-10-14 00:00:00
 2201,2024-08,6999969,,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
 2201,2024-09,7066281,,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
 2201,2024-10,6625460,,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
@@ -168,6 +173,7 @@ StockID,Month,RevenueThousandNTD,YoYPct,Source,RetrievedAt
 2201,2026-05,5720734,-2.96,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
 2201,2026-06,5920500,-8.06,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
 2201,2026-07,5943538,-3.92,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
+2201,2026-08,5807285,-2.02,finmind_TaiwanStockMonthRevenue,2026-10-14 00:00:00
 2204,2024-08,1882462,,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
 2204,2024-09,2729237,,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
 2204,2024-10,2374520,,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
@@ -192,6 +198,7 @@ StockID,Month,RevenueThousandNTD,YoYPct,Source,RetrievedAt
 2204,2026-05,2779423,5.92,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
 2204,2026-06,3042427,6.71,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
 2204,2026-07,2878948,13.64,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
+2204,2026-08,2255905,-3.04,finmind_TaiwanStockMonthRevenue,2026-10-14 00:00:00
 2206,2024-08,5022347,,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
 2206,2024-09,5367010,,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
 2206,2024-10,4886174,,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
@@ -216,6 +223,7 @@ StockID,Month,RevenueThousandNTD,YoYPct,Source,RetrievedAt
 2206,2026-05,5235734,-6.23,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
 2206,2026-06,5068819,-13.38,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
 2206,2026-07,5407346,-5.94,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
+2206,2026-08,4883225,-0.22,finmind_TaiwanStockMonthRevenue,2026-10-14 00:00:00
 2308,2024-08,37770041,,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
 2308,2024-09,37094029,,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
 2308,2024-10,38816849,,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
@@ -240,6 +248,7 @@ StockID,Month,RevenueThousandNTD,YoYPct,Source,RetrievedAt
 2308,2026-05,58961817,43.65,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
 2308,2026-06,65602611,55.43,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
 2308,2026-07,67073192,47.75,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
+2308,2026-08,64586049,34.95,finmind_TaiwanStockMonthRevenue,2026-10-14 00:00:00
 4739,2024-08,299970,,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
 4739,2024-09,326116,,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
 4739,2024-10,304470,,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
@@ -264,6 +273,7 @@ StockID,Month,RevenueThousandNTD,YoYPct,Source,RetrievedAt
 4739,2026-05,1159552,140.95,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
 4739,2026-06,953770,113.79,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
 4739,2026-07,975627,128.92,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
+4739,2026-08,872233,34.4,finmind_TaiwanStockMonthRevenue,2026-10-14 00:00:00
 6282,2024-08,2771464,,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
 6282,2024-09,3195689,,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
 6282,2024-10,2361808,,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
@@ -288,6 +298,7 @@ StockID,Month,RevenueThousandNTD,YoYPct,Source,RetrievedAt
 6282,2026-05,2940031,26.19,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
 6282,2026-06,3423036,28.28,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
 6282,2026-07,3263384,42.45,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
+6282,2026-08,3708827,38.47,finmind_TaiwanStockMonthRevenue,2026-10-14 00:00:00
 9958,2024-08,922599,,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
 9958,2024-09,1025697,,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
 9958,2024-10,1036505,,finmind_TaiwanStockMonthRevenue,2026-09-08 00:00:00
