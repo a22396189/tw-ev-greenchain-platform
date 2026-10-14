@@ -160,6 +160,7 @@ def sector_revenue_momentum() -> Dict:
       - revenue-weighted average YoY %
       - MoM change vs the previous month
       - company count
+
     Sub-sectors are ranked by weighted YoY, so the answer to "which part of the
     green-energy chain is accelerating right now" falls straight out.
     """
